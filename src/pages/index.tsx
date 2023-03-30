@@ -1,6 +1,8 @@
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
+import toast from "react-hot-toast";
+import { LineWave } from "react-loader-spinner";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
@@ -11,6 +13,11 @@ const Home: NextPage = () => {
   const { mutateAsync, isLoading } = api.openai.chat.useMutation();
 
   async function chat() {
+    console.log({ input });
+    if (!input) {
+      toast.error("Please enter a value");
+      return;
+    }
     const response = await mutateAsync(input);
     setHtmlResponse(response);
   }
@@ -25,7 +32,7 @@ const Home: NextPage = () => {
       <main className="relative min-h-screen">
         <div className="absolute left-1/2 top-10 -translate-x-1/2 -translate-y-1/2 transform">
           <form
-            className="flex w-96 items-center justify-center gap-x-2 rounded-lg border-2 border-gray-300 bg-white p-2 shadow-lg"
+            className="flex w-full items-center justify-center gap-x-2 rounded-lg border-2 border-gray-300 bg-white p-2 shadow-lg lg:w-[28rem]"
             onSubmit={(e) => {
               e.preventDefault();
               void chat();
@@ -44,7 +51,22 @@ const Home: NextPage = () => {
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? "..." : "Create"}
+              {isLoading ? (
+                <LineWave
+                  height="36"
+                  width="36"
+                  color="#4fa94d"
+                  ariaLabel="line-wave"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                  visible={true}
+                  firstLineColor=""
+                  middleLineColor=""
+                  lastLineColor=""
+                />
+              ) : (
+                "Create"
+              )}
             </button>
           </form>
         </div>

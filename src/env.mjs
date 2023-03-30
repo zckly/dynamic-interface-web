@@ -6,6 +6,8 @@ import { z } from "zod";
  */
 const server = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
+  OPENAI_API_KEY: z.string().min(1),
+  OPENAI_MODEL_NAME: z.string().min(1),
 });
 
 /**
@@ -24,6 +26,8 @@ const client = z.object({
  */
 const processEnv = {
   NODE_ENV: process.env.NODE_ENV,
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+  OPENAI_MODEL_NAME: process.env.OPENAI_MODEL_NAME,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
@@ -50,7 +54,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
   if (parsed.success === false) {
     console.error(
       "❌ Invalid environment variables:",
-      parsed.error.flatten().fieldErrors,
+      parsed.error.flatten().fieldErrors
     );
     throw new Error("Invalid environment variables");
   }
@@ -64,7 +68,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
         throw new Error(
           process.env.NODE_ENV === "production"
             ? "❌ Attempted to access a server-side environment variable on the client"
-            : `❌ Attempted to access server-side environment variable '${prop}' on the client`,
+            : `❌ Attempted to access server-side environment variable '${prop}' on the client`
         );
       return target[/** @type {keyof typeof target} */ (prop)];
     },
