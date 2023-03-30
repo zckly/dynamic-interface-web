@@ -14,6 +14,14 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 - [OpenAI](https://openai.com)
 - [Langchain JS](https://github.com/hwchase17/langchainjs)
 
+## Set up
+
+First, make sure you run `pnpm` install.
+
+Next, run `cp .env.example .env` and then add your `OPENAI_API_KEY` to `.env`.
+
+Finally run `pnpm dev` and the app should be up at localhost:3000!
+
 ## Learn More
 
 To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
