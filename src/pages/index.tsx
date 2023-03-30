@@ -6,13 +6,12 @@ import { api } from "~/utils/api";
 const Home: NextPage = () => {
   const [input, setInput] = useState<string>("");
   const [htmlResponse, setHtmlResponse] = useState<string>(
-    "<div class='h-screen w-full flex flex-col justify-center items-center'><div className='font-medium text-lg'>the dynamic interface: type anything you want in the search bar to make it real. can take up to 30 seconds to return results.</div></div>"
+    "<div class='h-screen w-full flex flex-col justify-center items-center'><div className='font-medium text-lg'>the dynamic interface: type anything you want in the search bar to make it real. can take up to a minute to return results.</div></div>"
   );
   const { mutateAsync, isLoading } = api.openai.chat.useMutation();
 
   async function chat() {
     const response = await mutateAsync(input);
-    console.log({ response });
     setHtmlResponse(response);
   }
 
