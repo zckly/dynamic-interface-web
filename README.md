@@ -22,15 +22,14 @@ Next, run `cp .env.example .env` and then add your `OPENAI_API_KEY` to `.env`.
 
 Finally run `pnpm dev` and the app should be up at localhost:3000!
 
-## Learn More
+## How do I use this?
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+After spinning up the app, try typing in some kind of interface into the input box.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+For example, "create Stripe's landing page" or "create a login page in the visual style of Airbnb but with #000000 as the main color instead of their red". Hit enter or press the Create button.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+Then you'll have to wait. If you're using gpt-3.5-turbo, you'll usually have to wait up to 1 min. For GPT4 it's even longer. There are ways of speeding this up but I haven't implemented them yet.
 
 ## How do I deploy this?
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Follow T3's deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
