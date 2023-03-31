@@ -16,7 +16,7 @@ This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3
 
 ## Set up
 
-First, make sure you run `pnpm` install.
+First, make sure you run `pnpm install`.
 
 Next, run `cp .env.example .env` and then add your `OPENAI_API_KEY` to `.env`.
 
